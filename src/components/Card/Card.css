@@ -1,0 +1,37 @@
+.card {
+  width: 190px;
+  padding: 20px 10px;
+  margin: 10px;
+  border: 1px solid rgb(234, 234, 234);
+  border-radius: 5px;
+  background-color: rgb(241, 255, 228);
+  box-shadow: 0px 3px 6px 2px rgb(222, 222, 222);
+}
+
+.card__image-container {
+  position: relative;
+  margin: 0;
+}
+
+.card__image {
+  object-fit: cover;
+  object-position: 0% 25%;
+}
+
+.card__favorite-button {
+  position: absolute;
+  top: 3px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.322);
+}
+
+.card__favorite-icon {
+  filter: invert(15%) sepia(79%) saturate(6388%) hue-rotate(357deg)
+    brightness(105%) contrast(114%);
+  cursor: pointer;
+}
