@@ -1,12 +1,11 @@
 import './App.css';
-import { Cards } from './components/Cards/Cards';
-import { pets } from './mock';
+import { Pets } from './components/Pets/Pets';
 
 function App() {
   return (
     <div className="App">
       <h1>Pet Place</h1>
-      <Cards pets={pets} />
+      <Pets />
     </div>
   );
 }
