@@ -9,6 +9,7 @@ export const pets = [
       alt: 'Golden retriever dog pic',
     },
     favorite: false,
+    gender: 'female',
   },
   {
     id: '0002',
@@ -20,6 +21,7 @@ export const pets = [
       alt: 'Jack Russell Terrier dog pic',
     },
     favorite: false,
+    gender: 'male',
   },
   {
     id: '0003',
@@ -31,5 +33,6 @@ export const pets = [
       alt: 'Samoyedo dog pic',
     },
     favorite: true,
+    gender: 'female',
   },
 ];
