@@ -4,11 +4,13 @@ import filledHeart from '../../assets/icons/filled-heart.svg';
 import { useState } from 'react';
 
 export const Card = (props) => {
-  const { name, phoneNumber, email, image, favorite } = props;
+  const { name, phoneNumber, email, image, favorite, index, updateFavorite } =
+    props;
 
   const [isFavorite, setIsFavorite] = useState(favorite);
 
   const toggleFavorite = () => {
+    updateFavorite(index, !isFavorite);
     setIsFavorite((isFavorite) => !isFavorite);
   };
 

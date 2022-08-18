@@ -3,8 +3,8 @@ import { pets } from '../../../mock';
 import { Cards } from '../Cards';
 
 describe('Cards', () => {
-  test('should render 3 card components', () => {
+  test('should render 4 card components', () => {
     render(<Cards pets={pets} />);
-    expect(screen.getAllByRole('article').length).toBe(3);
+    expect(screen.getAllByRole('article').length).toBe(4);
   });
 });

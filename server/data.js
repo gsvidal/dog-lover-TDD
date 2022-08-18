@@ -9,6 +9,7 @@ const pets = [
       alt: 'Golden retriever dog pic',
     },
     favorite: false,
+    gender: 'female',
   },
   {
     id: '0002',
@@ -20,6 +21,7 @@ const pets = [
       alt: 'Jack Russell Terrier dog pic',
     },
     favorite: false,
+    gender: 'male',
   },
   {
     id: '0003',
@@ -30,7 +32,20 @@ const pets = [
       url: 'https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60',
       alt: 'Samoyedo dog pic',
     },
-    favorite: true,
+    favorite: false,
+    gender: 'female',
+  },
+  {
+    id: '0004',
+    name: 'Rambo',
+    phoneNumber: '777-171-7217',
+    email: 'camila.alf@gmail.com',
+    image: {
+      url: 'https://images.unsplash.com/photo-1568572933382-74d440642117?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+      alt: 'Siberian Husky dog pic',
+    },
+    favorite: false,
+    gender: 'male',
   },
 ];
 
