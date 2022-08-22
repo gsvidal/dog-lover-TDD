@@ -1,17 +1,31 @@
 import './Card.css';
 import outlinedHeart from '../../assets/icons/outlined-heart.svg';
 import filledHeart from '../../assets/icons/filled-heart.svg';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { PetsContext } from '../../context/PetsContext';
 
 export const Card = (props) => {
-  const { name, phoneNumber, email, image, favorite, index, updateFavorite } =
-    props;
+  const {
+    filteredPets,
+    setFilteredPets,
+    hasChangedFavorite,
+    setHasChangedFavorite,
+  } = useContext(PetsContext);
+
+  const { name, phoneNumber, email, image, favorite, index } = props;
 
   const [isFavorite, setIsFavorite] = useState(favorite);
 
+  const updateFavorite = (indexPet, isFavorite) => {
+    const updatedPets = [...filteredPets];
+    updatedPets[indexPet].favorite = isFavorite;
+    setFilteredPets(updatedPets);
+    setHasChangedFavorite(!hasChangedFavorite);
+  };
+
   const toggleFavorite = () => {
     updateFavorite(index, !isFavorite);
-    setIsFavorite((isFavorite) => !isFavorite);
+    setIsFavorite(!isFavorite);
   };
 
   return (
@@ -26,12 +40,21 @@ export const Card = (props) => {
             height="130"
           />
           <button onClick={toggleFavorite} className="card__favorite-button">
-            <img
-              src={isFavorite ? filledHeart : outlinedHeart}
-              alt={isFavorite ? 'Filled Heart' : 'Outlined Heart'}
-              className="card__favorite-icon"
-              width="14"
-            />
+            {isFavorite ? (
+              <img
+                src={filledHeart}
+                alt="Filled Heart"
+                className="card__favorite-icon"
+                width="14"
+              />
+            ) : (
+              <img
+                src={outlinedHeart}
+                alt="Outlined Heart"
+                className="card__favorite-icon"
+                width="14"
+              />
+            )}
           </button>
         </figure>
         <div className="card__info">

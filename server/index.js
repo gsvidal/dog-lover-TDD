@@ -3,7 +3,7 @@ const { pets } = require('./data');
 const cors = require('cors');
 
 const app = express();
-const port = '4066';
+const port = '4000';
 
 app.use(cors());
 

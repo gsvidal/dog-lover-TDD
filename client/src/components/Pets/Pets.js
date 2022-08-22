@@ -2,25 +2,29 @@ import { Filter } from '../Filter/Filter';
 import { Cards } from '../Cards/Cards';
 import './Pets.css';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { PetsContext } from '../../context/PetsContext';
 
 export const Pets = () => {
-  const [pets, setPets] = useState([]);
-  const [filteredPets, setFilteredPets] = useState([]);
+  const { pets, setPets, setFilteredPets, hasChangedFavorite } =
+    useContext(PetsContext);
+  // const [pets, setPets] = useState([]);
+  // const [filteredPets, setFilteredPets] = useState([]);
   const [filters, setFilters] = useState({
     gender: 'any',
     favorite: 'any',
   });
 
-  const fetchPets = async () => {
-    const response = await axios.get('http://localhost:4000/pets');
-    setPets(response.data);
-    setFilteredPets(response.data);
-  };
+  // const [hasChangedFavorite, setHasChangedFavorite] = useState(false);
 
   useEffect(() => {
+    const fetchPets = async () => {
+      const response = await axios.get('http://localhost:4000/pets');
+      setPets(response.data);
+      setFilteredPets(response.data);
+    };
     fetchPets();
-  }, []);
+  }, [setPets, setFilteredPets]);
 
   useEffect(() => {
     let petsFiltered = [...pets];
@@ -36,12 +40,12 @@ export const Pets = () => {
       });
     }
     setFilteredPets(petsFiltered);
-  }, [filters.gender, filters.favorite, pets]);
+  }, [filters, pets, hasChangedFavorite, setFilteredPets]);
 
   return (
     <div className="app-container">
       <Filter filters={filters} setFilters={setFilters} />
-      <Cards pets={filteredPets} setPets={setPets} />
+      <Cards />
     </div>
   );
 };

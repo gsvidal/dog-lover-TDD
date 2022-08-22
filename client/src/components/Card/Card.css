@@ -14,8 +14,8 @@
 }
 
 .card__image {
+  height: 180px;
   object-fit: cover;
-  object-position: 0% 25%;
 }
 
 .card__favorite-button {

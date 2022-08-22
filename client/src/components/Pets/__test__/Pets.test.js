@@ -4,6 +4,7 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { pets } from '../../../mock';
 import userEvent from '@testing-library/user-event';
+import { PetsProvider } from '../../../context/PetsContext';
 
 const server = setupServer(
   rest.get('http://localhost:4000/pets', (req, res, ctx) => {
@@ -11,7 +12,11 @@ const server = setupServer(
   })
 );
 beforeEach(() => {
-  render(<Pets />);
+  render(
+    <PetsProvider>
+      <Pets />
+    </PetsProvider>
+  );
 });
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
@@ -58,6 +63,28 @@ describe('Pets', () => {
       cards[1],
       cards[2],
       cards[3],
+    ]);
+  });
+
+  test('should filter favorites after applying no favorite filter', async () => {
+    const cards = await screen.findAllByRole('article');
+    userEvent.click(within(cards[0]).getByRole('button'));
+    userEvent.click(within(cards[1]).getByRole('button'));
+    userEvent.selectOptions(
+      screen.getByLabelText(/favorite status/i),
+      'no favorite'
+    );
+    expect(screen.getAllByRole('article')).toStrictEqual([cards[2], cards[3]]);
+    userEvent.click(within(cards[2]).getByRole('button'));
+    expect(screen.getAllByRole('article')).toStrictEqual([cards[3]]);
+    userEvent.selectOptions(
+      screen.getByLabelText(/favorite status/i),
+      'favorite'
+    );
+    expect(screen.getAllByRole('article')).toStrictEqual([
+      cards[0],
+      cards[1],
+      cards[2],
     ]);
   });
 

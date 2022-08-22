@@ -1,10 +1,17 @@
 body {
+  height: 100vh;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(255, 244, 244);
+  background-image: radial-gradient(
+    rgb(188, 188, 188),
+    rgb(255, 214, 214),
+    rgb(237, 218, 255)
+  );
 }
 
 code {

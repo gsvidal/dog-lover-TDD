@@ -1,5 +1,5 @@
 .app-container {
   display: flex;
-  max-width: 1000px;
+  justify-content: center;
   margin: 0 auto;
 }
