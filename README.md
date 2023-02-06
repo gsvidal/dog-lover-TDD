@@ -1,4 +1,4 @@
-# pet-lover-TDD
+# dog-lover-TDD
 An application that fetches pets data from a node server with Express, where we can filter them depending on gender and favorite status made with React and Test Driven Development.
 
 <a href="https://github.com/gsvidal/pet-lover-TDD">
