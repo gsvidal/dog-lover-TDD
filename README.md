@@ -9,7 +9,7 @@ An application that fetches pets data from a node server with Express, where we 
 
 To have this project in your local environment you should do the following:
 
-- Clone the project from ` git@github.com:gsvidal/pet-lover-TDD.git `
+- Clone the project from ` git@github.com:gsvidal/dog-lover-TDD.git `
 
 - `npm install` or `yarn add`
 
